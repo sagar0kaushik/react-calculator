@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sagar Kaushik - Website Developer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font - Inter for a modern look, similar to the image -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a; /* Dark background from the image */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #e2e8f0; /* Light text color */
+            overflow-x: hidden; /* Prevent horizontal scroll from subtle elements */
+        }
+
+        /* Custom green accent color */
+        .accent-green {
+            background-color: #38a169; /* A slightly darker, more vibrant green */
+        }
+        .text-accent-green {
+            color: #38a169;
+        }
+        .border-accent-green {
+            border-color: #38a169;
+        }
+        .hover-accent-green:hover {
+            background-color: #2f855a;
+        }
+        .hover-text-accent-green:hover {
+            color: #2f855a;
+        }
+
+        /* Rounded corners for consistency */
+        .rounded-full-lg {
+            border-radius: 9999px; /* Effectively full rounded like pills */
+        }
+
+        /* Custom button style from the image */
+        .primary-button {
+            background-color: #38a169;
+            color: white;
+            padding: 0.75rem 1.75rem;
+            border-radius: 9999px; /* Pill shape */
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .primary-button:hover {
+            background-color: #2f855a;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Specific for the "CV" button on navbar */
+        .cv-button {
+            background-color: #38a169;
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .cv-button:hover {
+            background-color: #2f855a;
+        }
+
+        /* Hero illustration container */
+        .hero-illustration {
+            position: absolute;
+            bottom: 0;
+            right: -10%; /* Adjust as needed */
+            width: 50%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.9; /* Slightly less opaque for better integration */
+            display: flex; /* Use flexbox to center image */
+            justify-content: center;
+            align-items: flex-end; /* Align image to bottom */
+        }
+
+        .hero-illustration img {
+            max-height: 90%; /* Ensure image fits within container */
+            width: auto; /* Maintain aspect ratio */
+            object-fit: contain; /* Ensure image scales properly */
+        }
+
+        @media (max-width: 768px) {
+            .hero-illustration {
+                width: 80%;
+                right: -20%;
+                height: 80%;
+                top: auto;
+                bottom: 0;
+                opacity: 0.4;
+            }
+            .hero-illustration img {
+                max-height: 100%; /* Adjust for mobile if needed */
+            }
+        }
+
+        /* Floating elements styling and animation */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 10s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .floating-element svg {
+            width: 32px; /* Default size for SVGs */
+            height: 32px;
+        }
+        @media (min-width: 768px) {
+            .floating-element svg {
+                width: 48px; /* Larger for desktop */
+                height: 48px;
+            }
+        }
+
+        /* Styles for generic floating circles (not tech icons) */
+        .floating-element.circle {
+            border-radius: 50%;
+            background-color: #e2e8f0; /* White/light grey */
+        }
+        .floating-element.circle-sm { width: 20px; height: 20px; }
+        .floating-element.circle-md { width: 30px; height: 30px; }
+        .floating-element.circle-lg { width: 40px; height: 40px; }
+
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-20px) translateX(10px); }
+            100% { transform: translateY(0) translateX(0); }
+        }
+
+        /* Specific positions for the elements */
+        .el-js { top: 10%; left: 5%; animation-delay: 0s; }
+        .el-ts { top: 25%; right: 15%; animation-delay: 2s; }
+        .el-react { bottom: 20%; left: 10%; animation-delay: 4s; }
+        .el-white-1 { top: 5%; left: 40%; animation-delay: 1s; opacity: 0.05; }
+        .el-white-2 { bottom: 10%; right: 40%; animation-delay: 3s; opacity: 0.05; }
+        .el-white-3 { top: 60%; left: 20%; animation-delay: 5s; opacity: 0.05; }
+
+        /* Blur effect for header and contact page background (increased blur) */
+        .header-blur {
+            backdrop-filter: blur(30px); /* Increased blur */
+            -webkit-backdrop-filter: blur(30px); /* For Safari */
+        }
+        .contact-bg-blur {
+            backdrop-filter: blur(30px); /* Increased blur */
+            -webkit-backdrop-filter: blur(30px); /* For Safari */
+            background-color: rgba(43, 43, 43, 0.85); /* Slightly more opaque for better contrast with increased blur */
+        }
+
+        /* Custom scrollbar styling for better aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #2b2b2b;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #38a169;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2f855a;
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-white">
+
+    <!-- Floating Background Elements (Simulated Icons/Shapes) -->
+    <div class="floating-element el-js">
+        <svg viewBox="0 0 24 24" fill="#F7DF1E" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM18.25 18C15.42 20.25 11.75 20.75 8.75 19.5C6.33 18.42 4.42 16.33 3.5 13.75C2.25 10.92 2.75 7.25 4 4.25C6.58 2.25 9.75 2.17 12.5 3.5C14.92 4.58 17.08 6.67 18 9.25C19.25 12.08 18.75 15.75 17.5 18.75L18.25 18ZM13.88 17.88C13.5 17.88 13.12 17.75 12.75 17.5C12.38 17.25 12.06 16.92 11.75 16.5C11.44 16.08 11.19 15.62 10.94 15.12C10.69 14.62 10.5 14.08 10.38 13.5L13.88 13.5V15.5C13.88 16.12 13.75 16.62 13.5 17C13.25 17.38 12.88 17.62 12.38 17.75C11.88 17.88 11.33 17.92 10.75 17.88C10.17 17.83 9.62 17.62 9.12 17.25C8.62 16.88 8.25 16.38 8 15.75C7.75 15.12 7.62 14.5 7.5 13.88C7.38 13.25 7.29 12.62 7.25 12C7.29 11.38 7.38 10.75 7.5 10.12C7.62 9.5 7.75 8.88 8 8.25C8.25 7.62 8.62 7.12 9.12 6.75C9.62 6.38 10.17 6.17 10.75 6.12C11.33 6.08 11.88 6.12 12.38 6.25C12.88 6.38 13.25 6.62 13.5 7C13.75 7.38 13.88 7.88 13.88 8.5L13.88 10.5H10.38V8.5C10.38 7.88 10.25 7.38 10 7C9.75 6.62 9.38 6.38 8.88 6.25C8.38-6.12 7.83-6.08 7.25-6.12C6.67-6.17 6.12-6.38 5.62-6.75C5.12-7.12 4.75-7.62 4.5-8.25C4.25-8.88 4.12-9.5 4-10.12C3.88-10.75 3.79-11.38 3.75-12C3.79-12.62 3.88-13.25 4-13.88C4.12-14.5 4.25-15.12 4.5-15.75C4.75-16.38 5.12-16.88 5.62-17.25C6.12-17.62 6.67-17.83 7.25-17.88C7.83-17.92 8.38-17.88 8.88-17.75C9.38-17.62 9.75-17.38 10-17L10-15.5H12.25L12.5-17.88Z"/>
+        </svg>
+    </div>
+    <div class="floating-element el-ts">
+        <svg viewBox="0 0 24 24" fill="#007ACC" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM18.25 18C15.42 20.25 11.75 20.75 8.75 19.5C6.33 18.42 4.42 16.33 3.5 13.75C2.25 10.92 2.75 7.25 4 4.25C6.58 2.25 9.75 2.17 12.5 3.5C14.92 4.58 17.08 6.67 18 9.25C19.25 12.08 18.75 15.75 17.5 18.75L18.25 18ZM13.88 17.88C13.5 17.88 13.12 17.75 12.75 17.5C12.38 17.25 12.06 16.92 11.75 16.5C11.44 16.08 11.19 15.62 10.94 15.12C10.69 14.62 10.5 14.08 10.38 13.5L13.88 13.5V15.5C13.88 16.12 13.75 16.62 13.5 17C13.25 17.38 12.88 17.62 12.38 17.75C11.88 17.88 11.33 17.92 10.75 17.88C10.17 17.83 9.62 17.62 9.12 17.25C8.62 16.88 8.25 16.38 8 15.75C7.75 15.12 7.62 14.5 7.5 13.88C7.38 13.25 7.29 12.62 7.25 12C7.29 11.38 7.38 10.75 7.5 10.12C7.62 9.5 7.75 8.88 8 8.25C8.25 7.62 8.62 7.12 9.12 6.75C9.62 6.38 10.17 6.17 10.75 6.12C11.33 6.08 11.88 6.12 12.38 6.25C12.88 6.38 13.25 6.62 13.5 7C13.75 7.38 13.88 7.88 13.88 8.5L13.88 10.5H10.38V8.5C10.38 7.88 10.25 7.38 10 7C9.75 6.62 9.38 6.38 8.88 6.25C8.38-6.12 7.83-6.08 7.25-6.12C6.67-6.17 6.12-6.38 5.62-6.75C5.12-7.12 4.75-7.62 4.5-8.25C4.25-8.88 4.12-9.5 4-10.12C3.88-10.75 3.79-11.38 3.75-12C3.79-12.62 3.88-13.25 4-13.88C4.12-14.5 4.25-15.12 4.5-15.75C4.75-16.38 5.12-16.88 5.62-17.25C6.12-17.62 6.67-17.83 7.25-17.88C7.83-17.92 8.38-17.88 8.88-17.75C9.38-17.62 9.75-17.38 10-17L10-15.5H12.25L12.5-17.88Z"/>
+        </svg>
+    </div>
+    <div class="floating-element el-react">
+        <svg viewBox="0 0 24 24" fill="#61DAFB" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM18.25 18C15.42 20.25 11.75 20.75 8.75 19.5C6.33 18.42 4.42 16.33 3.5 13.75C2.25 10.92 2.75 7.25 4 4.25C6.58 2.25 9.75 2.17 12.5 3.5C14.92 4.58 17.08 6.67 18 9.25C19.25 12.08 18.75 15.75 17.5 18.75L18.25 18ZM13.88 17.88C13.5 17.88 13.12 17.75 12.75 17.5C12.38 17.25 12.06 16.92 11.75 16.5C11.44 16.08 11.19 15.62 10.94 15.12C10.69 14.62 10.5 14.08 10.38 13.5L13.88 13.5V15.5C13.88 16.12 13.75 16.62 13.5 17C13.25 17.38 12.88 17.62 12.38 17.75C11.88 17.88 11.33 17.92 10.75 17.88C10.17-17.83 9.62-17.62 9.12-17.25C8.62-16.88 8.25-16.38 8-15.75C7.75-15.12 7.62-14.5 7.5-13.88C7.38-13.25 7.29-12.62 7.25-12C7.29-11.38 7.38-10.75 7.5-10.12C7.62-9.5 7.75-8.88 8-8.25C8.25-7.62 8.62-7.12 9.12-6.75C9.62-6.38 10.17-6.17 10.75-6.12C11.33-6.08 11.88-6.12 12.38-6.25C12.88-6.38 13.25-6.62 13.5-7C13.75-7.38 13.88-7.88 13.88-8.5L13.88-10.5H10.38V-8.5C10.38-7.88 10.25-7.38 10-7C9.75-6.62 9.38-6.38 8.88-6.25C8.38-6.12 7.83-6.08 7.25-6.12C6.67-6.17 6.12-6.38 5.62-6.75C5.12-7.12 4.75-7.62 4.5-8.25C4.25-8.88 4.12-9.5 4-10.12C3.88-10.75 3.79-11.38 3.75-12C3.79-12.62 3.88-13.25 4-13.88C4.12-14.5 4.25-15.12 4.5-15.75C4.75-16.38 5.12-16.88 5.62-17.25C6.12-17.62 6.67-17.83 7.25-17.88C7.83-17.92 8.38-17.88 8.88-17.75C9.38-17.62 9.75-17.38 10-17L10-15.5H12.25L12.5-17.88Z"/>
+            <circle cx="12" cy="12" r="2.5" fill="#61DAFB"/>
+        </svg>
+    </div>
+    <!-- Abstract white/grey circles for general background elements -->
+    <div class="floating-element circle circle-sm el-white-1"></div>
+    <div class="floating-element circle circle-md el-white-2"></div>
+    <div class="floating-element circle circle-lg el-white-3"></div>
+
+    <!-- Header/Navigation Bar -->
+    <header class="bg-gray-900 bg-opacity-90 backdrop-blur-sm p-4 sticky top-0 z-50 shadow-lg header-blur">
+        <nav class="container mx-auto flex justify-between items-center px-4 md:px-0">
+            <!-- Logo/Name -->
+            <div class="text-3xl font-extrabold text-white tracking-wide">
+                Sagar Kaushik
+            </div>
+            <!-- Navigation Links -->
+            <ul class="hidden md:flex space-x-8 items-center">
+                <li><a href="#home" class="text-white hover:text-accent-green transition-colors duration-300 text-lg font-medium">HOME</a></li>
+                <li><a href="#about" class="text-white hover:text-accent-green transition-colors duration-300 text-lg font-medium">ABOUT ME</a></li>
+                <li><a href="#portfolio" class="text-white hover:text-accent-green transition-colors duration-300 text-lg font-medium">PORTFOLIO</a></li>
+                <li><a href="#contact" class="text-white hover:text-accent-green transition-colors duration-300 text-lg font-medium">CONTACT</a></li>
+                <li><a href="#resume" class="cv-button">CV</a></li>
+            </ul>
+            <!-- Mobile Menu Button (Hamburger) -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-800 py-4 mt-2 rounded-lg">
+            <ul class="flex flex-col items-center space-y-4">
+                <li><a href="#home" class="block text-white hover:text-accent-green transition-colors duration-300 text-lg font-medium py-2">HOME</a></li>
+                <li><a href="#about" class="block text-white hover:text-accent-green transition-colors duration-300 text-lg font-medium py-2">ABOUT ME</a></li>
+                <li><a href="#portfolio" class="block text-white hover:text-accent-green transition-colors duration-300 text-lg font-medium py-2">PORTFOLIO</a></li>
+                <li><a href="#contact" class="block text-white hover:text-accent-green transition-colors duration-300 text-lg font-medium py-2">CONTACT</a></li>
+                <li><a href="#resume" class="cv-button w-auto px-6 py-2">CV</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow container mx-auto p-4 md:p-8 pt-12 relative">
+
+        <!-- Hero Section -->
+        <section id="home" class="relative min-h-[calc(100vh-160px)] flex flex-col md:flex-row items-center justify-center md:justify-start pt-16 md:pt-0">
+            <div class="flex-1 text-center md:text-left z-20">
+                <p class="text-gray-400 text-lg md:text-xl mb-2">Hello 👋, I'm</p>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-4 animate-fade-in-up">Sagar Kaushik</h1>
+                <p class="text-accent-green text-xl md:text-2xl font-medium mb-4 animate-fade-in-up delay-100">Website Developer</p>
+                <p class="text-gray-300 text-md md:text-lg mb-8 animate-fade-in-up delay-200">2 Years of experience in Website Development.</p>
+                <a href="#contact" class="primary-button inline-block animate-fade-in-up delay-300">Contact</a>
+            </div>
+
+            <!-- New PNG Image for Human Subject -->
+            <div class="md:w-1/2 w-full flex justify-center items-center md:absolute md:right-0 md:bottom-0 md:h-full hero-illustration">
+                <img src="WhatsApp Image 2025-06-24 at 16.46.58_91ad2e85.jpg" alt="Sagar Kaushik Cartoon Avatar" class="w-full h-full object-contain">
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="min-h-screen flex items-center justify-center text-center py-16">
+            <div>
+                <h2 class="text-4xl font-bold mb-4">About Me</h2>
+                <p class="text-gray-400 text-lg max-w-3xl mx-auto">
+                    Highly passionate and detail-oriented Content Developer with 2 years of experience in creating engaging and high-quality content for various digital platforms.
+                    My expertise lies in crafting compelling narratives, optimizing content for SEO, and collaborating with cross-functional teams to deliver impactful communication strategies.
+                </p>
+                <p class="text-gray-400 text-lg max-w-3xl mx-auto mt-4">
+                    I am proficient in various content management systems and always eager to learn new tools and techniques to enhance content effectiveness.
+                    Let's connect and create something amazing!
+                </p>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="min-h-screen flex items-center justify-center text-center py-16">
+            <div>
+                <h2 class="text-4xl font-bold mb-4">My Portfolio</h2>
+                <p class="text-gray-400 text-lg">Showcasing my best work...</p>
+                <!-- Add portfolio items here -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-semibold text-accent-green mb-2">Project Alpha</h3>
+                        <p class="text-gray-300">Developed engaging blog posts and articles for a tech startup, increasing organic traffic by 30%.</p>
+                        <a href="#" class="text-blue-400 hover:underline mt-4 inline-block">View Project</a>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-semibold text-accent-green mb-2">Campaign Beta</h3>
+                        <p class="text-gray-300">Managed content creation for a social media campaign that reached over 1 million users.</p>
+                        <a href="#" class="text-blue-400 hover:underline mt-4 inline-block">View Project</a>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-semibold text-accent-green mb-2">Website Redesign Copy</h3>
+                        <p class="text-gray-300">Provided all website copy for a complete e-commerce platform redesign.</p>
+                        <a href="#" class="text-blue-400 hover:underline mt-4 inline-block">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume" class="min-h-screen flex items-center justify-center text-center py-16 bg-gray-900 rounded-xl shadow-xl p-8 my-16">
+            <div class="max-w-4xl mx-auto text-left">
+                <h2 class="text-4xl font-bold mb-6 text-accent-green text-center">My Resume</h2>
+                <div class="bg-gray-800 p-6 rounded-lg text-gray-300 leading-relaxed shadow-lg overflow-auto max-h-[70vh]">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Sagar Kaushik</h3>
+                    <p class="text-sm mb-4">6377329766 | Email | Linkedin</p>
+
+                    <h4 class="text-xl font-semibold text-accent-green mt-6 mb-3">EDUCATION</h4>
+                    <p class="mb-2"><strong>Rajasthan Technical University, Kota</strong></p>
+                    <p class="text-sm mb-4">B.Tech in Computer Science and Engineering, CGPA: 7.5</p>
+
+                    <h4 class="text-xl font-semibold text-accent-green mt-6 mb-3">WORK EXPERIENCE</h4>
+                    <p class="mb-2"><strong>Web Development, Internship, Uddharana</strong></p>
+                    <p class="text-sm">July 2024 - Sep 2024 (Expected May 2026)</p>
+                    <ul class="list-disc list-inside ml-4 text-sm mt-2">
+                        <li>Built responsive, cross-browser interfaces with HTML, CSS, JavaScript, and React.js.</li>
+                        <li>Contributed to web development tasks including coding, testing, and troubleshooting.</li>
+                        <li>Demonstrated the ability to work independently and collaboratively on live projects.</li>
+                    </ul>
+
+                    <h4 class="text-xl font-semibold text-accent-green mt-6 mb-3">TRAINING COURSES</h4>
+                    <p class="mb-2"><strong>Web Application Development, Chai or Code, Virtual</strong></p>
+                    <p class="text-sm">Mar 2024 - June 2024</p>
+                    <ul class="list-disc list-inside ml-4 text-sm mt-2">
+                        <li>Skilled in HTML, CSS, JavaScript, React.js, Firebase.</li>
+                        <li>Developed Todo List, Crud Project, Password Generator.</li>
+                    </ul>
+                    <p class="mb-2 mt-4"><strong>C++ Developer Intern, Deadlock Training Institute, Virtual.</strong></p>
+                    <p class="text-sm">May 2023 - Jun 2023</p>
+                    <ul class="list-disc list-inside ml-4 text-sm mt-2">
+                        <li>Learned advanced C++ concepts: OOP, templates, memory management.</li>
+                        <li>Developed games like Tic-Tac-Toe and Guess the Number Game.</li>
+                    </ul>
+
+                    <h4 class="text-xl font-semibold text-accent-green mt-6 mb-3">PROJECTS</h4>
+                    <p class="mb-2"><strong>Crud Project</strong></p>
+                    <p class="text-sm">Mar 2025</p>
+                    <ul class="list-disc list-inside ml-4 text-sm mt-2">
+                        <li>Built a responsive CRUD app using React.js with dynamic form handling and state management.</li>
+                        <li>Enabled create, read, update, and delete operations with a clean, user-friendly interface.</li>
+                        <li>Focused on modular components, reusability, and efficient UI rendering.</li>
+                    </ul>
+
+                    <p class="mb-2 mt-4"><strong>Password Generator</strong></p>
+                    <p class="text-sm">Jan 2025</p>
+                    <ul class="list-disc list-inside ml-4 text-sm mt-2">
+                        <li>Created a customizable password generator using React.js.</li>
+                        <li>Used hooks for dynamic input handling and real-time updates.</li>
+                        <li>Designed a clean, responsive user interface.</li>
+                    </ul>
+
+                    <p class="mb-2 mt-4"><strong>Todo List</strong></p>
+                    <p class="text-sm">Feb 2025</p>
+                    <ul class="list-disc list-inside ml-4 text-sm mt-2">
+                        <li>Built a responsive task management app with add, edit, delete, and complete features.</li>
+                        <li>Used Local Storage for data persistence without backend integration.</li>
+                        <li>Implemented dynamic UI updates with JavaScript DOM manipulation.</li>
+                    </ul>
+
+                    <h4 class="text-xl font-semibold text-accent-green mt-6 mb-3">SKILLS</h4>
+                    <ul class="list-disc list-inside ml-4 text-sm mt-2 space-y-1">
+                        <li><strong>Programming Languages:</strong> C, C++</li>
+                        <li><strong>Databases:</strong> Firebase</li>
+                        <li><strong>Web:</strong> HTML, CSS, JavaScript, React.js</li>
+                        <li><strong>Concepts:</strong> OOP, Data Structures and Algorithms</li>
+                        <li><strong>Tools:</strong> Github, MS Word, PowerPoint</li>
+                        <li><strong>Soft Skills:</strong> Problem Solving</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="min-h-screen flex items-center justify-center text-center py-16">
+            <div>
+                <h2 class="text-4xl font-bold mb-4">Get in Touch</h2>
+                <p class="text-gray-400 text-lg mb-8">
+                    Feel free to reach out for collaborations or just to say hello!
+                </p>
+                <form class="max-w-lg mx-auto bg-gray-800 p-8 rounded-xl shadow-lg contact-bg-blur">
+                    <div class="mb-6 text-left">
+                        <label for="name" class="block text-gray-300 text-sm font-bold mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-900 leading-tight focus:outline-none focus:ring-2 focus:ring-accent-green bg-gray-700 border-gray-600" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-900 leading-tight focus:outline-none focus:ring-2 focus:ring-accent-green bg-gray-700 border-gray-600" placeholder="your.email@example.com">
+                    </div>
+                    <div class="mb-8 text-left">
+                        <label for="message" class="block text-gray-300 text-sm font-bold mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-900 leading-tight focus:outline-none focus:ring-2 focus:ring-accent-green bg-gray-700 border-gray-600" placeholder="Your message..."></textarea>
+                    </div>
+                    <button type="submit" class="primary-button w-full">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 bg-opacity-90 backdrop-blur-sm py-8 text-center text-gray-400 text-sm">
+        <p>&copy; 2024 Sagar Kaushik. All rights reserved.</p>
+        <div class="mt-4 flex justify-center space-x-6">
+            <!-- Social Media Links (placeholders) -->
+            <a href="#" class="text-gray-400 hover:text-accent-green transition-colors duration-300">LinkedIn</a>
+            <a href="#" class="text-gray-400 hover:text-accent-green transition-colors duration-300">GitHub</a>
+            <a href="#" class="text-gray-400 hover:text-accent-green transition-colors duration-300">Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu after clicking a link
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

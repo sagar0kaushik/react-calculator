@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Calculator</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sexy Calculator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #eee;
+    }
+
+    .calculator {
+      background: #1e1e1e;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .display {
+      background: transparent;
+      color: white;
+      font-size: 3rem;
+      text-align: right;
+      padding: 10px;
+      height: 80px;
+      overflow-x: auto;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    button {
+      font-size: 1.5rem;
+      aspect-ratio: 1 / 1; /* keeps buttons circular */
+      width: 100%;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      color: white;
+      background-color: #444;
+      transition: background 0.2s ease, transform 0.1s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    .operator {
+      background-color: orange;
+    }
+
+    .equal {
+      background-color: #888;
+    }
+
+    @media (max-width: 500px) {
+      .calculator {
+        padding: 15px;
+      }
+
+      button {
+        font-size: 1.2rem;
+      }
+
+      .display {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <button class="operator" onclick="press('+')">+</button>
+      <button onclick="press('7')">7</button>
+      <button onclick="press('8')">8</button>
+      <button onclick="press('9')">9</button>
+
+      <button class="operator" onclick="press('-')">-</button>
+      <button onclick="press('4')">4</button>
+      <button onclick="press('5')">5</button>
+      <button onclick="press('6')">6</button>
+
+      <button class="operator" onclick="press('*')">*</button>
+      <button onclick="press('1')">1</button>
+      <button onclick="press('2')">2</button>
+      <button onclick="press('3')">3</button>
+
+      <button class="operator" onclick="press('/')">/</button>
+      <button onclick="press('0')">0</button>
+      <button onclick="press('.')">.</button>
+      <button class="equal" onclick="calculate()">=</button>
+
+      <button class="operator" onclick="clearDisplay()">C</button>
+    </div>
+  </div>
+
+  <script>
+    let display = document.getElementById("display");
+
+    function press(key) {
+      if (display.innerText === "0" && key !== '.') {
+        display.innerText = key;
+      } else {
+        display.innerText += key;
+      }
+    }
+
+    function calculate() {
+      try {
+        display.innerText = eval(display.innerText);
+      } catch (e) {
+        display.innerText = "Error";
+      }
+    }
+
+    function clearDisplay() {
+      display.innerText = "0";
+    }
+  </script>
+</body>
+</html> -->
