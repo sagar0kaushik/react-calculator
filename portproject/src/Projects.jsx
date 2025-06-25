@@ -19,6 +19,18 @@ const projects = [
     description: "This personal portfolio website you're on now! Built using React, animations, dark/light mode, and smooth routing.",
     live: "#",
     github: "https://github.com/yourusername/portfolio-site"
+  },
+  {
+    title: "React Calculator",
+    description: "A clean, responsive calculator app built using React with full keyboard support and live preview functionality.",
+    live: "https://react-cal-sagarkaushik584-gmailcoms-projects.vercel.app/",
+    github: "https://github.com/sagar0kaushik/react-cal"
+  },
+  {
+    title: "To-Do List App",
+    description: "A modern to-do list app with task management, localStorage persistence, and minimal UI.",
+    live: "https://todo-sagarkaushik584-gmailcoms-projects.vercel.app/",
+    github: "https://github.com/sagar0kaushik/todo"
   }
 ];
 
